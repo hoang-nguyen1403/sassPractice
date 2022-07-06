@@ -1,0 +1,142 @@
+$text-primary: #b61984;
+$text-dark: black;
+$primary-color: #f5f9fe;
+$rating-color: yellow;
+$background-section-color: #dcd1f3;
+$background-card-color: #fff;
+
+$text-xxs: 12px;
+$text-xs: 14px;
+$text-base: 16px;
+$text-md: 18px;
+$text-xl: 20px;
+$text-xxl: 24px;
+$text-xxxl: 30px;
+$text-semi-4xl: 36px;
+$text-4xl: 40px;
+$text-5xl: 57px;
+$text-6xl: 70px;
+
+// font-weight
+
+$text-thin: 100;
+$text-light: 300;
+$text-semiBold: 600;
+$text-bold: 700;
+
+//border radius
+
+$border-card-radius: 16px;
+
+$greencolors: (
+  "100": "#00FF00",
+  "200": "#00EE00",
+  "300": "#00DD00",
+);
+
+@each $number, $value in $greencolors {
+  .bg-green-#{$number} {
+    background-color: $value;
+  }
+  .text-green-#{$number} {
+    color: $value;
+  }
+}
+
+@mixin main-btn(
+  $btn-width: 150px,
+  $btn-height: 48px,
+  $t-color: $background-card-color,
+  $bg-color: $text-primary,
+  $t-hv-color: $text-primary,
+  $hv-bg-color: $background-card-color
+) {
+  color: $t-color;
+  background-color: $bg-color;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3em $bg-color inset;
+  @include text($text-xxs, $text-semiBold, $t-color);
+  width: $btn-width;
+  height: $btn-height;
+  border: none;
+  letter-spacing: 1px;
+  transition: all 300ms ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 0 1px $bg-color inset;
+    color: $t-hv-color;
+    background-color: $hv-bg-color;
+  }
+}
+
+// ------------mixin ( hàm trong scss)-----------------
+@mixin text($fz: $text-base, $fw: $text-light, $c: $text-dark) {
+  font-size: $fz;
+  font-weight: $fw;
+  color: $c;
+}
+@mixin subTitleText($fz: $text-md, $fw: $text-semiBold, $c: $text-primary) {
+  font-size: $fz;
+  font-weight: $fw;
+  color: $c;
+}
+@mixin titleText($fz: $text-5xl, $fw: $text-semiBold, $c: $text-dark) {
+  font-size: $fz;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin iconLink(
+  $width: 17px,
+  $height: 14px,
+  $padding: 4px,
+  $color: $text-dark
+) {
+  width: $width;
+  height: $height;
+  padding: $padding;
+  color: $color;
+  &hover {
+    color: $primary-color;
+  }
+}
+
+@mixin button($bg, $pd, $b, $br, $fz, $fw, $c, $bg-hover, $c-hover) {
+  background-image: linear-gradient(
+    to right,
+    #2a73dd 0%,
+    #fff 70%,
+    #2a73dd 100%
+  );
+  //   min-width: 200px;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  display: block;
+  border-radius: 10px;
+
+  //   background: $bg;
+  padding: $pd;
+  border: $b;
+  border-radius: $br;
+  font-size: $fz;
+  font-weight: $fw;
+  color: #f5f9fe;
+  // background-color: #2a73dd;
+  color: $c;
+  // padding: 20px;
+  // box-shadow: 0 3px 6px #c9d8f4;
+  //   cursor: pointer;
+  //   transition: all 0.5s;
+  &:hover {
+    // background: $bg-hover;
+    // color: $c-hover;
+    background-position: right center; /* change the direction of the change here */
+    color: $c-hover;
+    text-decoration: none;
+  }
+}
